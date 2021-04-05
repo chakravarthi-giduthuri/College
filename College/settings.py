@@ -29,7 +29,7 @@ DEBUG = True
 
 AUTH_USER_MODEL = 'accounts.User'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['collegemaz.herokuapp.com']
 
 
 # Application definition
