@@ -1,0 +1,41 @@
+.body {
+  background: lightsalmon;
+}
+
+.post {
+  margin-top: 4rem;
+  width: 420px;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border: 1px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.int {
+  display: flex;
+  flex-direction: column;
+}
+
+.sec {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .post {
+    max-width: 90%;
+  }
+}

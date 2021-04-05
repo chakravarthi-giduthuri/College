@@ -1,0 +1,62 @@
+<!-- <form method="POST" enctype="multipart/form-data">
+  {%csrf_token%} {{username}} {{form}}
+  <input type="submit" name="sumbit" />
+</form> -->
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static '/css/create.css'%}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    {%include 'home/navbar.html'%}
+    <div class="sec">
+      <article class="post">
+        <form class="form" method="POST" enctype="multipart/form-data">
+          {%csrf_token%}
+          <header>
+            <h3>create post</h3>
+          </header>
+          <div class="int">
+            <label>title</label>
+            <span>{{form.title}}</span>
+          </div>
+          <div class="int">
+            <label>summary</label>
+            <span>{{form.summary}}</span>
+          </div>
+          <div class="int">
+            <label>image</label>
+            {{form.img}}
+          </div>
+          <div class="int">
+            <label>file</label>
+            <span>{{form.files}}</span>
+          </div>
+          <br />
+
+          <button type="submit" class="btn btn-m btn-primary">post</button>
+          {{form.errors}}
+        </form>
+      </article>
+    </div>
+  </body>
+</html>

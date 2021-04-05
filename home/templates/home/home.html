@@ -1,0 +1,56 @@
+{%extends 'home/main.html' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+      crossorigin="anonymous"
+    />
+
+    <title>HOME</title>
+  </head>
+  <body>
+    {%block content%}
+    <div class="section">
+      {%for p in post%}
+      <article class="article">
+        {%if request.user.is_teacher or request.user.is_staff %}
+        <header class="title">
+          <h3><a href="{%url 'post' p.id%}">{{p.title}}</a></h3>
+          <p>{{p.date}}</p>
+        </header>
+        {%else%}
+        <header class="title">
+          <h3>{{p.title}}</h3>
+          <p>{{p.date}}</p>
+        </header>
+        {%endif%}
+        <hr />
+        <div>
+          {%if p.img%}
+          <img class="image" src="{{p.img.url}}" alt="{{p.title}}" />
+          <hr />
+          {%endif%}
+        </div>
+        <div class="file">
+          {%if p.files%}
+          <a href="{{p.files.url}}"
+            ><i class="fa fa-download" aria-hidden="true"></i
+          ></a>
+          {{p.files.name}}
+          <hr />
+          {%endif%}
+        </div>
+        <h4>{{p.summary}}</h4>
+      </article>
+
+      {%endfor%}
+    </div>
+    {%endblock%}
+  </body>
+</html>

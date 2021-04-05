@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+
+    <!-- styles -->
+    <link rel="stylesheet" href="{%static '/css/navbar.css'%}" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-center">
+        <!-- nav header -->
+        <div class="nav-header">
+          <img src="{% static '/images/clogo.png'%}" class="logo" alt="logo" />
+          <button class="nav-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+        <!-- links -->
+        {%if request.user.is_teacher or request.user.is_staff %}
+        <ul class="links">
+          <li>
+            <a href="{%url 'home'%}">home</a>
+          </li>
+
+          <li>
+            <a href="{%url 'create'%}">create</a>
+          </li>
+          {%endif%} {%if request.user.is_authenticated%}
+          <li>
+            <a href="{%url 'logout'%}">logout</a>
+          </li>
+          <li>
+        </ul>
+          {%else%}
+        <ul class="links">
+            <a href="{%url 'register'%}">register</a>
+          </li>
+          <li>
+            <a href="{%url 'login'%}">login</a>
+          </li>
+          {%endif%}
+        </ul>
+        
+        <!-- social media -->
+        <!-- <ul class="social-icons">
+          <li>
+            <a href="https://www.twitter.com">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com">
+              <i class="fab fa-behance"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com">
+              <i class="fab fa-sketch"></i>
+            </a>
+          </li>
+        </ul> -->
+      </div>
+    </nav>
+    <!-- javascript -->
+    <script src="{%static '/js/navbar.js'%}"></script>
+    {%block content%} {%endblock%}
+  </body>
+</html>

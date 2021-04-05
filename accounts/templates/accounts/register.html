@@ -1,0 +1,35 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static '/css/register.css'%}"
+    />
+    <title>Register</title>
+  </head>
+  <body>
+    {%include '../home/navbar.html'%}
+    <div class="section">
+      <div class="icon">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <a href="{%url 'teacher' %}">teacher register</a>
+      </div>
+
+      <div class="icon">
+        <i class="fa fa-graduation-cap" aria-hidden="true"> </i>
+        <a href="{%url 'student' %}">student register</a>
+      </div>
+    </div>
+  </body>
+</html>
